@@ -11,8 +11,9 @@
     <link rel="shortcut icon" href="assets/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
     <link rel="manifest" href="assets/site.webmanifest" />
-
+    <script src="https://cdn.jsdelivr.net/npm/add-to-calendar-button@2" async defer></script>
     <link rel="stylesheet" href="css/styles.css">
+    <script src="javascript/main.js"></script>
 </head>
 
 <body>
@@ -36,25 +37,28 @@
                 <img src="assets/apple.svg" alt="iCal" class="cal-icon">
                 Add to iCal
             </button>
+
+
             <button class="btn calendar" data-cal="google">
                 <img src="assets/google.svg" alt="Google Calendar" class="cal-icon">
                 Google Calendar
             </button>
+
+
             <button class="btn calendar" data-cal="outlook">
                 <img src="assets/outlook.svg" alt="Outlook" class="cal-icon">
                 Outlook
             </button>
-        </div>
 
+            <div class="spacer-before-footer"></div>
 
-        <div class="spacer-before-footer"></div>
-
-        <footer>
-            <p>This service is provided by <strong>InsiderCX</strong> to enhance <br> your appointment experience.</p>
-            <p class="copyright">© 2024 <strong>InsiderCX</strong>. All rights reserved.</p>
-        </footer>
+            <footer>
+                <p>This service is provided by <strong>InsiderCX</strong> to enhance <br> your appointment experience.
+                </p>
+                <p class="copyright">© 2024 <strong>InsiderCX</strong>. All rights reserved.</p>
+            </footer>
     </main>
-    <script src="javascript/main.js"></script>
+
 </body>
 
 </html>
