@@ -22,7 +22,7 @@
 }
 
 .spacer-top {
-  flex: 0.5; /* ADJUSTED: smanjen spacer da podigne sadržaj */
+  flex: 0.5;
   min-height: 1rem;
 }
 
@@ -41,12 +41,12 @@
   flex-shrink: 0;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 2rem; /* ADJUSTED: smanjeno sa 11rem */
+  margin-bottom: 2rem;
   display: block;
 }
 
 .spacer-after-logo {
-  flex: 2; /* ADJUSTED: smanjen spacer */
+  flex: 2;
   min-height: 2rem;
 }
 
@@ -239,7 +239,6 @@ footer .copyright {
   color: #000000;
 }
 
-/* Dugmad za confirm / cancel */
 .btn.confirm {
   background: #16a34a;
   color: #fff;
@@ -273,18 +272,17 @@ footer .copyright {
   transform: scale(1.05);
 }
 
-/* ---------- STILOVI ZA KLIKA-BILNI ŽUTI BOX (CALL) ---------- */
+/* ---------- stilovi za Yellow box (CALL) ---------- */
 
-/* Osnovni izgled */
 .yellow-box {
   justify-content: center;
-  background-color: #fbcc18; /* žuta boja */
+  background-color: #fbcc18;
   padding: 1rem 0.9rem;
   border-radius: 8px;
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  margin-top: 7rem; /* ADJUSTED: smanjeno sa 4dvh da podigne sadržaj */
+  margin-top: 7rem;
   font-weight: 700;
   font-size: 0.95rem;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
@@ -294,12 +292,10 @@ footer .copyright {
   transition: transform 0.12s ease, box-shadow 0.12s ease;
 }
 
-/* Kad yellow-box je <a> link */
 .yellow-box.call-link {
   cursor: pointer;
 }
 
-/* Ikona telefona (ako koristiš externi svg preko <img>) */
 .phone-icon {
   width: 15px;
   height: 15px;
@@ -308,29 +304,25 @@ footer .copyright {
   flex-shrink: 0;
 }
 
-/* Tekst brojke */
 .phone-text {
   line-height: 1;
   color: #201a02;
 }
 
-/* Hover / focus state za pristupačnost */
 .yellow-box.call-link:focus,
 .yellow-box.call-link:hover {
   outline: none;
-  transform: translateY(-2px);
+  transform: scale(1.05);
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
   text-decoration: none;
 }
 
-/* Povećana klik meta (ako želiš širinu 100% promijeni klasu na .btn.call.yellow-full u HTML-u) */
 .btn.call.yellow-full {
   display: inline-flex;
   width: 100%;
   justify-content: center;
 }
 
-/* Malo prilagođeni responsive spacing */
 @media (max-width: 420px) {
   .yellow-box {
     padding: 0.5rem 0.7rem;
