@@ -52,8 +52,8 @@ function reorderCalendarButtons() {
   
   if (!icalBtn || !googleBtn || !outlookBtn) return;
   
-  // Zapamti poziciju prvog gumba kalendara
-  const firstBtnPosition = icalBtn.nextSibling;
+  // Zapamti poziciju prvog gumba kalendara i sljedeći element nakon zadnjeg gumba
+  const referenceElement = outlookBtn.nextSibling; // Element nakon zadnjeg gumba kalendara
   const parentElement = icalBtn.parentElement;
   
   // Ukloni postojeće gumbove iz DOM-a
@@ -62,14 +62,14 @@ function reorderCalendarButtons() {
   // Dodaj gumbove u odgovarajućem redoslijed ovisno o OS-u
   if (os === 'Android') {
     // Android: Google, Outlook, iCal
-    parentElement.insertBefore(googleBtn, firstBtnPosition);
-    parentElement.insertBefore(outlookBtn, firstBtnPosition);
-    parentElement.insertBefore(icalBtn, firstBtnPosition);
+    parentElement.insertBefore(googleBtn, referenceElement);
+    parentElement.insertBefore(outlookBtn, referenceElement);
+    parentElement.insertBefore(icalBtn, referenceElement);
   } else {
     // iOS ili ostalo: iCal, Google, Outlook (originalni redoslijed)
-    parentElement.insertBefore(icalBtn, firstBtnPosition);
-    parentElement.insertBefore(googleBtn, firstBtnPosition);
-    parentElement.insertBefore(outlookBtn, firstBtnPosition);
+    parentElement.insertBefore(icalBtn, referenceElement);
+    parentElement.insertBefore(googleBtn, referenceElement);
+    parentElement.insertBefore(outlookBtn, referenceElement);
   }
 }
 
