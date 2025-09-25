@@ -52,20 +52,24 @@ function reorderCalendarButtons() {
   
   if (!icalBtn || !googleBtn || !outlookBtn) return;
   
+  // Zapamti poziciju prvog gumba kalendara
+  const firstBtnPosition = icalBtn.nextSibling;
+  const parentElement = icalBtn.parentElement;
+  
   // Ukloni postojeće gumbove iz DOM-a
   calendarBtns.forEach(btn => btn.remove());
   
   // Dodaj gumbove u odgovarajućem redoslijed ovisno o OS-u
   if (os === 'Android') {
     // Android: Google, Outlook, iCal
-    actionsContainer.appendChild(googleBtn);
-    actionsContainer.appendChild(outlookBtn);
-    actionsContainer.appendChild(icalBtn);
+    parentElement.insertBefore(googleBtn, firstBtnPosition);
+    parentElement.insertBefore(outlookBtn, firstBtnPosition);
+    parentElement.insertBefore(icalBtn, firstBtnPosition);
   } else {
     // iOS ili ostalo: iCal, Google, Outlook (originalni redoslijed)
-    actionsContainer.appendChild(icalBtn);
-    actionsContainer.appendChild(googleBtn);
-    actionsContainer.appendChild(outlookBtn);
+    parentElement.insertBefore(icalBtn, firstBtnPosition);
+    parentElement.insertBefore(googleBtn, firstBtnPosition);
+    parentElement.insertBefore(outlookBtn, firstBtnPosition);
   }
 }
 
