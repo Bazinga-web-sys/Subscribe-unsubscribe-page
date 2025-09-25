@@ -37,40 +37,26 @@ function detectOS() {
 
 // Funkcija za preurediti gumbove kalendara ovisno o OS-u
 function reorderCalendarButtons() {
-  const actionsContainer = document.querySelector('.actions');
-  if (!actionsContainer) return;
-  
-  const calendarBtns = Array.from(actionsContainer.querySelectorAll('.btn.calendar'));
-  if (calendarBtns.length === 0) return;
-  
   const os = detectOS();
   
-  // Pronađi gumbove po data-cal atributu
-  const icalBtn = calendarBtns.find(btn => btn.dataset.cal === 'ical');
-  const googleBtn = calendarBtns.find(btn => btn.dataset.cal === 'google');
-  const outlookBtn = calendarBtns.find(btn => btn.dataset.cal === 'outlook');
-  
-  if (!icalBtn || !googleBtn || !outlookBtn) return;
-  
-  // Zapamti poziciju prvog gumba kalendara i sljedeći element nakon zadnjeg gumba
-  const referenceElement = outlookBtn.nextSibling; // Element nakon zadnjeg gumba kalendara
-  const parentElement = icalBtn.parentElement;
-  
-  // Ukloni postojeće gumbove iz DOM-a
-  calendarBtns.forEach(btn => btn.remove());
-  
-  // Dodaj gumbove u odgovarajućem redoslijed ovisno o OS-u
   if (os === 'Android') {
     // Android: Google, Outlook, iCal
-    parentElement.insertBefore(googleBtn, referenceElement);
-    parentElement.insertBefore(outlookBtn, referenceElement);
-    parentElement.insertBefore(icalBtn, referenceElement);
-  } else {
-    // iOS ili ostalo: iCal, Google, Outlook (originalni redoslijed)
-    parentElement.insertBefore(icalBtn, referenceElement);
-    parentElement.insertBefore(googleBtn, referenceElement);
-    parentElement.insertBefore(outlookBtn, referenceElement);
+    const icalBtn = document.querySelector('[data-cal="ical"]');
+    const googleBtn = document.querySelector('[data-cal="google"]');
+    const outlookBtn = document.querySelector('[data-cal="outlook"]');
+    
+    if (icalBtn) icalBtn.style.order = '3';
+    if (googleBtn) googleBtn.style.order = '1';
+    if (outlookBtn) outlookBtn.style.order = '2';
+    
+    // Osiguraj da actions kontejner koristi flexbox
+    const actionsContainer = document.querySelector('.actions');
+    if (actionsContainer) {
+      actionsContainer.style.display = 'flex';
+      actionsContainer.style.flexDirection = 'column';
+    }
   }
+  // Za iOS i ostalo ne treba ništa mijenjati jer je već ispravan redoslijed
 }
 
 document.addEventListener("DOMContentLoaded", () => {
