@@ -149,10 +149,11 @@ p.notified {
   transform: scale(1.05);
 }
 
-/* Footer fix da se uvijek vidi */
+
 .spacer-before-footer {
   flex: 1;
   min-height: 1rem;
+  flex-grow: 2.2;
 }
 
 footer {
@@ -247,3 +248,4 @@ footer .copyright {
     flex-grow: 0; /* da se ne rasteže */
   }
 }
+
