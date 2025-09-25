@@ -28,28 +28,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const cancelBtn = document.getElementById("cancelBtn");
   const calendarBtns = document.querySelectorAll(".btn.calendar");
 
-  //dynamic swap za ciljani mobile OS
-  const actions = document.querySelector(".actions");
-  if (actions) {
-    const ical = document.querySelector('[data-cal="ical"]');
-    const google = document.querySelector('[data-cal="google"]');
-    const outlook = document.querySelector('[data-cal="outlook"]');
 
-    const ua = navigator.userAgent;
-    const isIOS =
-      ua.includes("iPhone") || ua.includes("iPad") || ua.includes("iPod");
-    const isAndroid = ua.includes("Android");
-
-    if (isIOS) {
-      // iPhone -> iCal gore, pa Google, pa Outlook
-      actions.innerHTML = "";
-      actions.append(ical, google, outlook);
-    } else if (isAndroid) {
-      // Android -> Google gore, pa Outlook, pa iCal
-      actions.innerHTML = "";
-      actions.append(google, outlook, ical);
-    }
-  }
+  
 
   //usmjeravanje na confirmed ili canceled pageove
   if (confirmBtn) {
@@ -101,3 +81,4 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
