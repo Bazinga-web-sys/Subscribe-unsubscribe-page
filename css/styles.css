@@ -149,8 +149,8 @@ p.notified {
   transform: scale(1.05);
 }
 
-
-.spacer-before-footer {
+/* Footer fix da se uvijek vidi */
+.spacer-after-logo {
   flex: 1;
   min-height: 1rem;
   flex-grow: 2.2;
@@ -165,11 +165,10 @@ footer {
 }
 
 .spacer-top,
-.spacer-after-logo,
 .spacer-before-actions,
 .spacer-before-footer {
-  flex-grow: 1;
   min-height: 0.5rem;
+  flex-grow: 1;
 }
 
 footer strong {
@@ -248,4 +247,3 @@ footer .copyright {
     flex-grow: 0; /* da se ne rasteže */
   }
 }
-
