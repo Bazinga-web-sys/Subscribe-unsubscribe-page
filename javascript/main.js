@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const cancelBtn = document.getElementById("cancelBtn");
   const calendarBtns = document.querySelectorAll(".btn.calendar");
 
-  //usmjeravanje na confirmed ili canceled pageove
+  //redirect na confirmed ili canceled pageove
   if (confirmBtn) {
     confirmBtn.addEventListener("click", () => {
       window.location.href = "confirmed.html";
@@ -45,12 +45,12 @@ document.addEventListener("DOMContentLoaded", () => {
     calendarBtns.forEach((btn) => {
       btn.addEventListener("click", () => {
         let cal = btn.dataset.cal;
-        if (cal === "ical") {
+        if (cal === "ios" || cal === "android") {
           generateICS({
             title: "Medical Appointment",
             description: "Your appointment at Affidea Čavka",
             start: "20240816T120000Z",
-            end: "20240816T123000Z", //diff of 30minuta
+            end: "20240816T123000Z",
             location: "Jordanovac 99, 10000 Zagreb",
           });
         } else if (cal === "google") {
@@ -59,14 +59,13 @@ document.addEventListener("DOMContentLoaded", () => {
             "_blank"
           );
         } else if (cal === "outlook") {
-          generateICS({
-            title: "Affieda Čavka",
-            description: "Affieda Čavka event",
-            start: "20240816T120000Z",
-            end: "20240816T123000Z",
-            location: "Jordanovac 99, 10000 Zagreb",
-          });
+          // Outlook web link
+          window.open(
+            "https://outlook.live.com/calendar/0/deeplink/compose?subject=Medical+Appointment&body=Your+appointment+at+Affidea+Čavka&startdt=2024-08-16T12:00:00Z&enddt=2024-08-16T12:30:00Z&location=Jordanovac+99,+10000+Zagreb",
+            "_blank"
+          );
         }
+
         // on-cllick check mark sawp
         const icon = btn.querySelector(".cal-icon");
         if (icon) {
